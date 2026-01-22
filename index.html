@@ -199,7 +199,7 @@
         // Fetch latest release
         async function fetchRelease() {
             try {
-                const res = await fetch('https://api.github.com/repos/mohdmunis161/netlink_vrelease/releases/latest');
+                const res = await fetch('https://api.github.com/repos/mohdmunis161/netlink_ver/releases/latest');
                 if (res.ok) {
                     const data = await res.json();
                     document.getElementById('version').textContent = data.tag_name;
