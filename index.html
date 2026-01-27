@@ -114,7 +114,7 @@
 
     <div class="content">
         <div class="version" id="version">v1.0.1</div>
-        <div class="date" id="date">January 22, 2026</div>
+        <div class="date" id="date">January 27, 2026</div>
 
         <a href="#" class="download-btn" id="download-btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,20 +196,8 @@
         }
         animate();
 
-        // Fetch latest release
-        async function fetchRelease() {
-            try {
-                const res = await fetch('https://api.github.com/repos/mohdmunis161/netlink_ver/releases/latest');
-                if (res.ok) {
-                    const data = await res.json();
-                    document.getElementById('version').textContent = data.tag_name;
-                    document.getElementById('date').textContent = new Date(data.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                    const exe = data.assets.find(a => a.name.endsWith('.exe'));
-                    if (exe) document.getElementById('download-btn').href = exe.browser_download_url;
-                }
-            } catch (e) { }
-        }
-        fetchRelease();
+        // Direct download link (avoids GitHub API rate limits)
+        document.getElementById('download-btn').href = 'https://github.com/mohdmunis161/netlink_ver/releases/latest/download/NetLink-Portable.exe';
     </script>
 </body>
 
